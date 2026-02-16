@@ -1,4 +1,3 @@
-import wordle
 from django.db import models
 
 
@@ -8,12 +7,12 @@ class word(models.Model):
 
     def __str__(self):
         return self.word
-    
+
     @classmethod
     def get_five_words(cls):
         """Returns a list of 5 random 5-letter words"""
-        return list(cls.objects.filter(word__regex=r'^.{5}$')[:5])
-    
+        return list(cls.objects.filter(word__regex=r"^.{5}$")[:5])
+
 
 class user_stats(models.Model):
     user_name = models.CharField(max_length=200)
@@ -22,7 +21,8 @@ class user_stats(models.Model):
 
     def __str__(self):
         return self.user_name
-    
+
+
 class letters(models.Model):
     letter = models.CharField(max_length=1)
     count = models.IntegerField(default=0)
