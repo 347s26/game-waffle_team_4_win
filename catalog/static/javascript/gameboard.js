@@ -1,7 +1,7 @@
 //5
 //3
 //5
-//3 
+//3
 //5
 
 // each letter is an javascript element in an array
@@ -31,6 +31,14 @@ const start_gameboard =
     row5_5: ['', '', '', '', '']
 }
 
+const boardStatus = {
+    row1_5: ['gray', 'gray', 'gray', 'gray', 'gray'],
+    row2_3: ['gray', 'blocked', 'gray', 'blocked', 'gray'],
+    row3_5: ['gray', 'gray', 'gray', 'gray', 'gray'],
+    row4_3: ['gray', 'blocked', 'gray', 'blocked', 'gray'],
+    row5_5: ['gray', 'gray', 'gray', 'gray', 'gray']
+};
+
 function scramble_start_gameboard() {
     for (let i = 0; i < 5; i++) {
         for (let j = 0; j < 5; j++) {
@@ -47,20 +55,21 @@ function show_start_gameboard() {
 }
 
 
-// goes into switch letter function and checks if the 
-//letter is in the answer key and if it is in the correct 
+// goes into switch letter function and checks if the
+//letter is in the answer key and if it is in the correct
 //position and then prints the result to the console
 function check_accuracy() {
     if (start_gameboard == answerkey) {
-        return "";
+        return console.log(`Correct Board`);
     } else {
-        for (let row = 0; row < start_gameboard.length; row++) {
-            for (let row = 0; row < start_gameboard.length; row++) {
-                n()
-
-
+        for (let row = 0; row < 5; row++) {
+            for (let col = 0; col < 5; col++) {
+                if (start_gameboard[row][col] == answerkey[row][col]) {
+                    console.log(`Correct Letter ${row}, ${col}`);
+                }
             }
-        } return "";
+        }
+        return console.log(`Incorrect Board`);
     }
 }
 
